@@ -3,43 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Site</title>
+    <title>Happy Birthday!</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #050f15 /* Blue background */
+            background: linear-gradient(135deg, #ffcc00, #ff6699, #ff3366, #66ccff); /* Colorful background */
             color: white;
-        }
-        .container {
-            border: 5px solid red; /* Red border */
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: auto;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+            animation: gradient 5s ease infinite; /* Animation for background */
         }
+
+        @keyframes gradient {
+            0% { background-color: #ffcc00; }
+            25% { background-color: #ff6699; }
+            50% { background-color: #ff3366; }
+            75% { background-color: #66ccff; }
+            100% { background-color: #ffcc00; }
+        }
+
         h1 {
-            margin: 0;
+            font-size: 3em;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+        
         p {
+            font-size: 1.5em;
             line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
+
+        .container {
+            border: 5px dashed #ff6600; /* Colorful border */
+            padding: 40px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent black background */
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
         footer {
-            margin-top: 20px;
+            margin-top: 30px;
             color: #ddd;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Our Site!</h1>
-        <p>We are delighted to have you here. Explore our content and enjoy your stay!</p>
+        <h1>🎉 Happy Birthday! 🎉</h1>
+        <p>Wishing you a day filled with laughter, joy, and colorful surprises!</p>
+        <p>May all your wishes come true today and always!</p>
     </div>
     <footer>
-        <p>&copy; 2024 Our Website</p>
+        <p>&copy; 2024 Birthday Wishes</p>
     </footer>
 </body>
 </html>
