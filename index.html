@@ -55,6 +55,26 @@
             z-index: 1;
         }
 
+        .rain {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.7);
+            animation: fall linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateX(-50%) translateY(-100vh);
+            }
+            100% {
+                transform: translateX(-50%) translateY(100vh);
+            }
+        }
+        
         footer {
             margin-top: 30px;
             color: #ddd;
@@ -72,5 +92,16 @@
     <footer>
         <p>&copy; 2024 Birthday Wishes</p>
     </footer>
+
+    <script>
+        // Create rain elements
+        for (let i = 0; i < 100; i++) {
+            const drop = document.createElement('div');
+            drop.className = 'rain';
+            drop.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            drop.style.animationDuration = Math.random() * 2 + 1 + 's'; // Random fall speed
+            document.body.appendChild(drop);
+        }
+    </script>
 </body>
 </html>
