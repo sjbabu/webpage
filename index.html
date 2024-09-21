@@ -14,6 +14,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            height: 100vh;
         }
 
         .grass {
@@ -25,9 +26,22 @@
             z-index: 0;
         }
 
+        .rainbow {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            width: 150%;
+            height: 150px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            border-radius: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            z-index: 1;
+            opacity: 0.7;
+        }
+
         .background-text {
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 8em;
@@ -36,22 +50,20 @@
             pointer-events: none;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             z-index: 0;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 4em;
             margin: 20px 0;
             z-index: 1;
             position: relative;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        p {
-            font-size: 1.5em;
-            line-height: 1.6;
-            z-index: 1;
-            position: relative;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .container {
@@ -65,41 +77,27 @@
             position: relative;
         }
 
-        .tree {
+        .bird {
             position: absolute;
-            bottom: 150px; /* Position above the grass */
-            width: 60px;
-            height: 100px;
-            background: green;
-            left: calc(50% - 300px);
-            clip-path: polygon(30% 0%, 0% 100%, 100% 100%);
-            z-index: 0;
+            width: 40px;
+            height: 20px;
+            background: black;
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+            z-index: 1;
+            animation: fly linear infinite;
         }
 
-        .tree.right {
-            left: calc(50% + 240px);
-        }
-
-        .rain {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 2px;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.7);
-            animation: fall linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes fall {
+        @keyframes fly {
             0% {
-                transform: translateX(-50%) translateY(-100vh);
+                transform: translateX(-100px);
+                top: 20%;
             }
             100% {
-                transform: translateX(-50%) translateY(100vh);
+                transform: translateX(100vw);
+                top: calc(20% + (rand() * 10 - 5)); /* Random vertical movement */
             }
         }
-        
+
         footer {
             margin-top: 30px;
             color: #ddd;
@@ -109,11 +107,10 @@
 </head>
 <body>
     <div class="grass"></div>
-    <div class="background-text">Rain Has to Fall</div>
-    <div class="tree"></div>
-    <div class="tree right"></div>
+    <div class="rainbow"></div>
+    <div class="background-text">Happy Birthday!</div>
     <div class="container">
-        <h1>🎉 Happy Birthday! ❤️</h1>
+        <h1>🎉 Celebrate! ❤️</h1>
         <p>Wishing you a day filled with laughter, joy, and colorful surprises!</p>
         <p>May all your wishes come true today and always!</p>
     </div>
@@ -122,13 +119,13 @@
     </footer>
 
     <script>
-        // Create rain elements
-        for (let i = 0; i < 100; i++) {
-            const drop = document.createElement('div');
-            drop.className = 'rain';
-            drop.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            drop.style.animationDuration = Math.random() * 2 + 1 + 's'; // Random fall speed
-            document.body.appendChild(drop);
+        // Create birds
+        for (let i = 0; i < 5; i++) {
+            const bird = document.createElement('div');
+            bird.className = 'bird';
+            bird.style.top = Math.random() * 40 + 'vh'; // Random vertical position
+            bird.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Random fly speed
+            document.body.appendChild(bird);
         }
     </script>
 </body>
