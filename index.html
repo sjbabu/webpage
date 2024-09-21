@@ -8,12 +8,21 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #ffcc00, #ff6699, #ff3366, #66ccff);
+            padding: 0;
+            background: linear-gradient(to top, #87CEEB, #ffffff); /* Blue sky */
             color: white;
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            background: #4caf50; /* Green pitch */
+            z-index: 0;
         }
 
         .background-text {
@@ -53,6 +62,22 @@
             display: inline-block;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             z-index: 1;
+            position: relative;
+        }
+
+        .tree {
+            position: absolute;
+            bottom: 150px; /* Position above the grass */
+            width: 60px;
+            height: 100px;
+            background: green;
+            left: calc(50% - 300px);
+            clip-path: polygon(30% 0%, 0% 100%, 100% 100%);
+            z-index: 0;
+        }
+
+        .tree.right {
+            left: calc(50% + 240px);
         }
 
         .rain {
@@ -83,7 +108,10 @@
     </style>
 </head>
 <body>
+    <div class="grass"></div>
     <div class="background-text">Rain Has to Fall</div>
+    <div class="tree"></div>
+    <div class="tree right"></div>
     <div class="container">
         <h1>🎉 Happy Birthday! ❤️</h1>
         <p>Wishing you a day filled with laughter, joy, and colorful surprises!</p>
