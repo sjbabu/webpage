@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Divya!!!!!!</title>
+    <title>Happy Birthday!</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -13,6 +13,7 @@
             color: white;
             text-align: center;
             animation: gradient 5s ease infinite; /* Animation for background */
+            position: relative;
         }
 
         @keyframes gradient {
@@ -21,6 +22,17 @@
             50% { background-color: #ff3366; }
             75% { background-color: #66ccff; }
             100% { background-color: #ffcc00; }
+        }
+
+        .background-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5em;
+            color: rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
+            pointer-events: none; /* Prevent interaction */
         }
 
         h1 {
@@ -51,8 +63,9 @@
     </style>
 </head>
 <body>
+    <div class="background-text">Rain Has to Fall</div>
     <div class="container">
-        <h1>🎉 Happy Birthday Divyaaaa !!!!! 🎉</h1>
+        <h1>🎉 Happy Birthday DIVYAAAA! ❤️</h1>
         <p>Wishing you a day filled with laughter, joy, and colorful surprises!</p>
         <p>May all your wishes come true today and always!</p>
     </div>
