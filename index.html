@@ -9,19 +9,11 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(135deg, #ffcc00, #ff6699, #ff3366, #66ccff); /* Colorful background */
+            background: linear-gradient(135deg, #ffcc00, #ff6699, #ff3366, #66ccff);
             color: white;
             text-align: center;
-            animation: gradient 5s ease infinite; /* Animation for background */
             position: relative;
-        }
-
-        @keyframes gradient {
-            0% { background-color: #ffcc00; }
-            25% { background-color: #ff6699; }
-            50% { background-color: #ff3366; }
-            75% { background-color: #66ccff; }
-            100% { background-color: #ffcc00; }
+            overflow: hidden;
         }
 
         .background-text {
@@ -29,43 +21,51 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 5em;
-            color: rgba(255, 255, 255, 0.2);
+            font-size: 8em;
+            color: rgba(255, 255, 255, 0.1);
             white-space: nowrap;
-            pointer-events: none; /* Prevent interaction */
+            pointer-events: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 0;
         }
 
         h1 {
             font-size: 3em;
             margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
-        
+
         p {
             font-size: 1.5em;
             line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .container {
-            border: 5px dashed #ff6600; /* Colorful border */
+            border: 5px dashed #ff6600;
             padding: 40px;
             border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent black background */
+            background-color: rgba(0, 0, 0, 0.5);
             display: inline-block;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            z-index: 1;
         }
 
         footer {
             margin-top: 30px;
             color: #ddd;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
     <div class="background-text">Rain Has to Fall</div>
     <div class="container">
-        <h1>🎉 Happy Birthday DIVYAAAA! ❤️</h1>
+        <h1>🎉 Happy Birthday! ❤️</h1>
         <p>Wishing you a day filled with laughter, joy, and colorful surprises!</p>
         <p>May all your wishes come true today and always!</p>
     </div>
