@@ -20,11 +20,11 @@
         .container {
             position: relative;
             top: 20%;
-            padding: 20px;
+            padding: 40px;
             border: 5px solid #ff6600;
             border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             z-index: 2;
         }
 
@@ -38,6 +38,7 @@
         p {
             font-size: 1.5em;
             margin: 10px 0;
+            color: #555;
         }
 
         .balloon {
@@ -62,30 +63,54 @@
             }
         }
 
-        .balloon:nth-child(1) {
-            left: 10%;
-            animation-duration: 4s;
-            animation-delay: 0s;
-        }
-        .balloon:nth-child(2) {
-            left: 30%;
-            animation-duration: 5s;
-            animation-delay: 1s;
-        }
-        .balloon:nth-child(3) {
+        .balloon-string {
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: #8B4513; /* Brown color for string */
+            bottom: -50px; /* Position below the balloon */
             left: 50%;
-            animation-duration: 3s;
-            animation-delay: 2s;
+            transform: translateX(-50%);
         }
-        .balloon:nth-child(4) {
-            left: 70%;
-            animation-duration: 4.5s;
-            animation-delay: 0.5s;
+
+        .balloon:nth-child(1) { left: 10%; animation-duration: 4s; animation-delay: 0s; }
+        .balloon:nth-child(2) { left: 30%; animation-duration: 5s; animation-delay: 1s; }
+        .balloon:nth-child(3) { left: 50%; animation-duration: 3s; animation-delay: 2s; }
+        .balloon:nth-child(4) { left: 70%; animation-duration: 4.5s; animation-delay: 0.5s; }
+        .balloon:nth-child(5) { left: 90%; animation-duration: 4s; animation-delay: 1.5s; }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FF6F00;
+            opacity: 0.8;
+            animation: fall 5s infinite;
+            z-index: 0;
         }
-        .balloon:nth-child(5) {
-            left: 90%;
-            animation-duration: 4s;
-            animation-delay: 1.5s;
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: gold;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
         }
 
         footer {
@@ -106,11 +131,45 @@
     </div>
 
     <!-- Balloons -->
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
-    <div class="balloon"></div>
+    <div class="balloon">
+        <div class="balloon-string"></div>
+    </div>
+    <div class="balloon">
+        <div class="balloon-string"></div>
+    </div>
+    <div class="balloon">
+        <div class="balloon-string"></div>
+    </div>
+    <div class="balloon">
+        <div class="balloon-string"></div>
+    </div>
+    <div class="balloon">
+        <div class="balloon-string"></div>
+    </div>
+
+    <!-- Confetti -->
+    <script>
+        const colors = ['#FF6F00', '#FFAB00', '#FFD600', '#AEEA00', '#00BFAE', '#00B0FF', '#3D5AFE', '#6200EA'];
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Random fall duration
+            document.body.appendChild(confetti);
+        }
+
+        // Sparkles
+        for (let i = 0; i < 30; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.animationDuration = (Math.random() * 1 + 0.5) + 's'; // Random sparkle duration
+            sparkle.style.animationDelay = Math.random() * 2 + 's'; // Random sparkle delay
+            document.body.appendChild(sparkle);
+        }
+    </script>
 
     <footer>
         <p>&copy; 2024 Birthday Celebrations</p>
